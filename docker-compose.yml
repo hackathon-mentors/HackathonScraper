@@ -1,0 +1,10 @@
+version: '3.5'
+
+services:
+  scraper:
+    image: python:3.8
+    container_name: scraper
+    command: /bin/bash /app/run.sh
+    volumes:
+      - .:/app
+      
