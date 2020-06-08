@@ -6,7 +6,8 @@
 
     // Check to see if webpage is loading
     if($fileHeaders[0]!="HTTP/1.1 200 OK") {
-        $contents = '<div class="alert alert-danger" role="alert">There was an error</div>';
+        printf('There was an error retrieving data');
+        // $contents = '<div class="alert alert-danger" role="alert">There was an error</div>';
     } else {
         
         $page = file_get_html($html);
@@ -51,9 +52,9 @@
             sizeof($event_logos)
             );
         if(count(array_unique($dataArr)) === 1) {
-            $objects = [];
+            $hackathons = [];
             for($i=0;$i<sizeof($titles);$i++){
-                $objects[] = (object) [
+                $hackathons[] = (object) [
                     "title" => $titles[$i],
                     "link" => $links[$i],
                     "event_date" => $event_dates[$i],
@@ -65,9 +66,10 @@
                     "event_logo" => $event_logos[$i]
                 ];
             }
-            print_r($objects);            
+            // print_r($hackathons[0]);
         } else {
-            $contents = '<div class="alert alert-danger" role="alert">The data didn\'t align</div>';
+            printf('There was an error retrieving data');
+            // $contents = '<div class="alert alert-danger" role="alert">The data didn\'t align</div>';
         }
     }
 ?>
